@@ -2,21 +2,18 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <stdio.h>
-#include <unistd.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
-/* FLAGS */
+#define S_LONG 2
+#define S_SHORT 1
+
 #define F_MINUS 1
 #define F_PLUS 2
 #define F_ZERO 4
 #define F_HASH 8
 #define F_SPACE 16
-
-/* SIZES */
-#define S_LONG 2
-#define S_SHORT 1
 
 /**
  * struct fmt - struct op.
@@ -43,7 +40,6 @@ int print_handler(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 int print_a_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
-	int flags, int width, int precision, int size);
 int print_a_hexadecimal(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_a_int(va_list types, char buffer[],
@@ -63,6 +59,7 @@ int print_a_string(va_list types, char buffer[],
 int print_a_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_a_octal(va_list types, char buffer[],
+	int flags, int width, int precision, int size);
 int print_a_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int the_flags(const char *format, int *i);
@@ -90,4 +87,5 @@ int check_if_printable(char);
 int append_the_hexa_code(char, char[], int);
 int check_if_digit(char);
 #endif
+
 
