@@ -1,104 +1,120 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _PRINTF_H_
+#define _PRINTF_H_
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
 
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
+#define OUTPUT_BUF_SIZE 1024
+#define BUF_FLUSH -1
 
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
+#define FIELD_BUF_SIZE 50
 
-#define S_LONG 2
-#define S_SHORT 1
+#define NULL_STRING "(null)"
+
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+#define CONVERT_LOWERCASE	1
+#define CONVERT_UNSIGNED	2
 
 /**
- * struct fmt - Struct op.
+ * struct parameters - parameters struct.
  *
- * @fmt: The format
- * @fn: The function associated
+ * @unsign: flag if value is unsigned
+ *
+ * @plus_flag: on if plus_flag specified.
+ * @space_flag: on if hashtag_flag specified.
+ * @hashtag_flag: on if _flag specified.
+ * @zero_flag: on if _flag specified.
+ * @minus_flag: on if _flag specified.
+ *
+ * @width: field width specified.
+ * @precision: field precision specified.
+ *
+ * @h_modifier: on if h_modifier is specified.
+ * @l_modifier: on if l_modifier is specified.
+ *
  */
-struct fmt
+
+typedef struct parameters
 {
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
+	unsigned int unsign			: 1;
 
+	unsigned int plus_flag		: 1;
+	unsigned int space_flag		: 1;
+	unsigned int hashtag_flag	: 1;
+	unsigned int zero_flag		: 1;
+	unsigned int minus_flag		: 1;
+
+	unsigned int width;
+	unsigned int precision;
+
+	unsigned int h_modifier		: 1;
+	unsigned int l_modifier		: 1;
+} params_t;
 
 /**
- * typedef struct fmt fmt_t - Struct op.
+ * struct specifier - Struct token
  *
- * @fmt: The format
- * @fm_t: The function associated
+ * @specifier: format token
+ * @f: The function associated
  */
-typedef struct fmt fmt_t;
+typedef struct specifier
+{
+	char *specifier;
+	int (*f)(va_list, params_t *);
+} specifier_t;
 
+/* _put.c */
+int _puts(char *str);
+int _putchar(int c);
+
+/* print_functions.c */
+int print_a_char(va_list ap, params_t *params);
+int print_a_int(va_list ap, params_t *params);
+int print_a_string(va_list ap, params_t *params);
+int print_a_percent(va_list ap, params_t *params);
+int print_an_S(va_list ap, params_t *params);
+
+/* number.c */
+char *convert(long int num, int base, int flags, params_t *params);
+int print_a_unsigned(va_list ap, params_t *params);
+int print_a_address(va_list ap, params_t *params);
+
+/* specifier.c */
+int (*get_the_specifier(char *s))(va_list ap, params_t *params);
+int get_print_func(char *s, va_list ap, params_t *params);
+int get_the_flag(char *s, params_t *params);
+int get_the_modifier(char *s, params_t *params);
+char *get_the_width(char *s, params_t *params, va_list ap);
+
+/* convert_number.c */
+int print_a_hex(va_list ap, params_t *params);
+int print_a_HEX(va_list ap, params_t *params);
+int print_a_binary(va_list ap, params_t *params);
+int print_an_octal(va_list ap, params_t *params);
+
+/* simple_printers.c */
+int print_from_to(char *start, char *stop, char *except);
+int print_a_rev(va_list ap, params_t *params);
+int print_a_rot13(va_list ap, params_t *params);
+
+/* print_a_number.c */
+int check_isdigit(int c);
+int get_strlen(char *s);
+int print_a_number(char *str, params_t *params);
+int print_a_number_right_shift(char *str, params_t *params);
+int print_a_number_left_shift(char *str, params_t *params);
+
+/* params.c */
+void init_params(params_t *params, va_list ap);
+
+/* string_fields.c */
+char *get_precision(char *p, params_t *params, va_list ap);
+
+/* _prinf.c */
 int _printf(const char *format, ...);
-int print_handler(const char *fmt, int *i,
-va_list list, char buffer[], int flags, int width, int precision, int size);
-
-int print_a_char(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_percent(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int print_a_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_unsigned(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_octal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_hexadecimal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_a_hexa_upper(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int print_a_hexa(va_list types, char map_to[],
-char buffer[], int flags, char flag_ch, int width, int precision, int size);
-
-int print_a_non_printable(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int print_a_pointer(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int the_flags(const char *format, int *i);
-int the_width(const char *format, int *i, va_list list);
-int the_precision(const char *format, int *i, va_list list);
-int the_size(const char *format, int *i);
-
-int print_a_reverse(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int print_a_rot13string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int handle_char_write(char c, char buffer[],
-	int flags, int width, int precision, int size);
-int write_a_number(int is_positive, int ind, char buffer[],
-	int flags, int width, int precision, int size);
-int write_a_num(int ind, char bff[], int flags, int width, int precision,
-	int length, char padd, char extra_c);
-int write_a_pointer(char buffer[], int ind, int length,
-	int width, int flags, char padd, char extra_c, int padd_start);
-
-int write_a_unsgnd(int is_negative, int ind,
-char buffer[],
-	int flags, int width, int precision, int size);
-
-int check_if_printable(char);
-int append_a_hexa_code(char, char[], int);
-int check_if_digit(char);
-
-long int convert_the_size_number(long int num, int size);
-long int convert_the_size_unsgnd(unsigned long int num, int size);
 
 #endif
