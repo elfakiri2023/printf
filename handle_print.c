@@ -21,7 +21,8 @@ int print_handler(const char *fmt, int *ind, va_list list, char buffer[],
 		{'c', print_a_char}, {'s', print_a_string}, {'%', print_a_percent},
 		{'i', print_a_int}, {'d', print_a_int}, {'b', print_a_binary},
 		{'u', print_a_unsigned}, {'o', print_a_octal}, {'x', print_a_hexadecimal},
-		{'X', print_a_hexa_upper}, {'p', print_a_pointer}, {'S', print_non_printable},
+		{'X', print_a_hexa_upper},
+		{'p', print_a_pointer}, {'S', print_non_printable},
 		{'r', reverse_print}, {'R', print_a_rot13string}, {'\0', NULL}
 	};
 	for (i = 0; the_types[i].fmt != '\0'; i++)
