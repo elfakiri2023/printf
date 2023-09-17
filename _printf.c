@@ -1,5 +1,7 @@
 #include "main.h"
 
+void buffer_print(char buffer[], int *buff_ind);
+
 /**
  * _printf - our main function
  * @format: char
@@ -9,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	int i, is_printed = 0, chars_printed = 0;
-	int width, flags, sizee, precision, index = 0;
+	int width, flags, sizee, precision, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
@@ -22,14 +24,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			buffer[index++] = format[i];
-			if (index == BUFF_SIZE)
-				buffer_print(buffer, &index);
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				buffer_print(buffer, &buff_ind);
 			chars_printed++;
 		}
 		else
 		{
-			buffer_print(buffer, &index);
+			buffer_print(buffer, &buff_ind);
 			flags = the_flags(format, &i);
 			width = the_width(format, &i, list);
 			precision = the_precision(format, &i, list);
@@ -43,11 +45,23 @@ int _printf(const char *format, ...)
 		}
 	}
 
-	buffer_print(buffer, &index);
+	buffer_print(buffer, &buff_ind);
 
 	va_end(list);
 
 	return (chars_printed);
 }
 
+/**
+ * buffer_print - function to print the content of the buffer
+ * @buffer: array
+ * @buff_ind: the length
+ */
 
+void buffer_print(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
+}
