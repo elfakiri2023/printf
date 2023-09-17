@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-*matab - a function
-*@types: valist
+*matab - function.
+*@types: va_list
 *@buffer: character
 *@flags: innteger 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int matab(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -61,14 +61,14 @@ return (cal(0, a, buffer, flags, width, precision, size));
 }
 
 /**
-*josh - a function
-*@types: valist
+*josh - function.
+*@types: va_list
 *@buffer: character
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int josh(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -78,14 +78,14 @@ return (ced(types, "0123456789abcdef", buffer,
 }
 
 /**
-*sizeri - a function
-*@types: valist
+*sizeri - function.
+*@types: va_list
 *@buffer: character
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int sizeri(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -95,16 +95,16 @@ return (ced(types, "0123456789ABCDEF", buffer,
 }
 
 /**
-*ced - a function
-*@types: valist
+*ced - function.
+*@types: va_list
 *@map_to: character 1
 *@buffer: character 2
-*@flags:  integer 1
+*@flags:  int
 *@flag_ch: Character 3
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int ced(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)

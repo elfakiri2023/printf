@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
-*ravoin - a function
+*ravoinn - function.
 *@c: character
 *@buffer: array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
-int ravoin(char c, char buffer[],
+int ravoinn(char c, char buffer[],
 	int flags, int width, int precision, int size)
 {
 int a = 0;
@@ -37,15 +37,15 @@ return (write(1, &buffer[0], 1));
 }
 
 /**
-*can - a function
-*@is_negative: integer 1
-*@ind: integer 2
+*can - function.
+*@is_negative: int
+*@ind: int
 *@buffer: an array
-*@flags: integer 3
-*@width: integer 4
+*@flags: int
+*@width: int
 *@precision: integer 5
 *@size: integer6
-*Return: not always 0
+*Return: 1 or 0
 */
 int can(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
@@ -66,7 +66,7 @@ return (kany(ind, buffer, flags, width, precision,
 }
 
 /**
-*kany - a function
+*kany - function.
 *@ind: 1st integer
 *@buffer: array
 *@flags: 2nd integer
@@ -75,7 +75,7 @@ return (kany(ind, buffer, flags, width, precision,
 *@length: 5th integer
 *@padd: 1st character
 *@extra_c: 2nd character
-*Return: not always 0
+*Return: 1 or 0
 */
 int kany(int ind, char buffer[],
 	int flags, int width, int prec,
@@ -122,7 +122,7 @@ buffer[--ind] = extra_c;
 return (write(1, &buffer[ind], length));
 }
 /**
-*cal - a function
+*cal - function.
 *@is_negative: 1st integer
 *@ind: 2nd integer
 *@buffer: array
@@ -130,7 +130,7 @@ return (write(1, &buffer[ind], length));
 *@width: 4th integer
 *@precision: 5th integer
 *@size: 6th integer
-*Return: not always 0
+*Return: 1 or 0
 */
 int cal(int is_negative, int ind,
 	char buffer[],
@@ -178,7 +178,7 @@ return (write(1, &buffer[ind], a));
 *@padd: 1st character
 *@extra_c: 2nd character
 *@padd_start: 5th integer
-*Return: not always 0
+*Return: 1 or 0
 */
 int kaba(char buffer[], int ind, int length,
 		int width, int flags, char padd, char extra_c, int padd_start)

@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-*shim - a function
+*fakiri - function.
 *@format: character
 *@i: integer
-*Return: not always 0
+*Return: 1 or 0
 */
-int shim(const char *format, int *i)
+int fakiri(const char *format, int *i)
 {
 int a, b;
 int c = 0;

@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-*jul - a function
+*jul - function.
 *@format: character
 *@i: integer
-*Return: not always 0
+*Return: 1 or 0
 */
 int jul(const char *format, int *i)
 {

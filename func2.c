@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-*sek - a function
-*@types: valist
+*sek - function.
+*@types: va_list
 *@buffer: character
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: Not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int sek(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -43,14 +43,14 @@ width, flags, b, a, e));
 }
 
 /**
-*audric - a function
-*@types: valist
+*audric - function.
+*@types: va_list
 *@buffer: a function
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int audric(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
@@ -68,7 +68,7 @@ while (c[a] != '\0')
 if (mar(c[a]))
 buffer[a + b] = c[a];
 else
-b += uway(c[a], buffer, a + b);
+b += helloo(c[a], buffer, a + b);
 a++;
 }
 buffer[a + b] = '\0';
@@ -76,14 +76,14 @@ return (write(1, buffer, a + b));
 }
 
 /**
-*makab - a function
-*@types: valist
+*makab - function.
+*@types: va_list
 *@buffer: character
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int makab(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
@@ -115,14 +115,14 @@ return (c);
 }
 
 /**
-*kiev - a function
-*@types: valist
+*kiev - function.
+*@types: va_list
 *@buffer: character
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int kiev(va_list types, char buffer[],
 	int flags, int width, int precision, int size)

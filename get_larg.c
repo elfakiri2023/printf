@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
-*mud - a function
+*badr - function.
 *@format: character
 *@i: integer
 *@list: valist
-*Return: not always 0
+*Return: 1 or 0
 */
-int mud(const char *format, int *i, va_list list)
+int badr(const char *format, int *i, va_list list)
 {
 int a;
 int b = 0;

@@ -1,29 +1,29 @@
 #include "main.h"
 /**
-*chrix - function
-*@types: valist
+*chrix - main function
+*@types: va_list
 *@buffer: array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: Not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int chrix(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 char c = va_arg(types, int);
-return (ravoin(c, buffer, flags, width, precision, size));
+return (ravoinn(c, buffer, flags, width, precision, size));
 }
 /**
-*gen - a function
+*gen - function.
 *@types: a valist
 *@buffer: an array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int gen(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -65,14 +65,14 @@ return (width);
 return (write(1, c, a));
 }
 /**
-*dolf - a function
-*@types: valist
+*dolf - function.
+*@types: va_list
 *@buffer: array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int dolf(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -86,14 +86,14 @@ UNUSED(size);
 return (write(1, "%%", 1));
 }
 /**
-*ninsaz - a function
-*@types: valist
+*ninsaz - function.
+*@types: va_list
 *@buffer: an array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int ninsaz(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -121,14 +121,14 @@ a++;
 return (can(b, a, buffer, flags, width, precision, size));
 }
 /**
-*buter - a function
-*@types: valist
+*buter - function.
+*@types: va_list
 *@buffer: an array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int buter(va_list types, char buffer[],
 	int flags, int width, int precision, int size)

@@ -1,15 +1,15 @@
 #include "main.h"
 /**
-*mic - a function
+*mic - function.
 *@fmt: a character
 *@list: valist
 *@ind: pointer
 *@buffer: array
-*@flags: integer 1
-*@width: integer 2
-*@precision: integer 3
-*@size: integer 4
-*Return: not always 0
+*@flags: int
+*@width: int
+*@precision: int
+*@size: int
+*Return: 1 or 0
 */
 int mic(const char *fmt, int *ind, va_list list, char buffer[],
 	int flags, int width, int precision, int size)

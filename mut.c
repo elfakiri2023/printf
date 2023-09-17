@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-*mar - a function
+*mar - function.
 *@c: acharacter
-*Return: not always 0
+*Return: 1 or 0
 */
 int mar(char c)
 {
@@ -12,13 +12,13 @@ return (1);
 return (0);
 }
 /**
-*uway - a function
+*helloo - function.
 *@buffer: an array
 *@i: integer
 *@ascii_code: character
 *Return: Always 3
 */
-int uway(char ascii_code, char buffer[], int i)
+int helloo(char ascii_code, char buffer[], int i)
 {
 char a[] = "0123456789ABCDEF";
 if (ascii_code < 0)
@@ -31,9 +31,9 @@ return (3);
 }
 
 /**
-*mat - a function
+*mat - function.
 *@c: character
-*Return: not always 0
+*Return: 1 or 0
 */
 int mat(char c)
 {
@@ -42,10 +42,10 @@ return (1);
 return (0);
 }
 /**
-*winn - a function
+*winn - function.
 *@num: 1st integer
 *@size: 2nd integer
-*Return: not always 0
+*Return: 1 or 0
 */
 long int winn(long int num, int size)
 {
@@ -57,10 +57,10 @@ return ((int)num);
 }
 
 /**
-*bazim - a function
+*bazim - function.
 *@num: 1st integer
 *@size: 2nd integer
-*Return: not always 0
+*Return: 1 or 0
 */
 long int bazim(unsigned long int num, int size)
 {

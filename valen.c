@@ -2,9 +2,9 @@
 
 void mucy(char buffer[], int *buff_ind);
 /**
-*_printf - a function
+*_printf - function.
 *@format: a pointer
-*Return: not always 0
+*Return: 1 or 0
 */
 int _printf(const char *format, ...)
 {
@@ -27,8 +27,8 @@ c++;
 else
 {
 mucy(l, &h);
-d = shim(format, &a);
-e = mud(format, &a, k);
+d = fakiri(format, &a);
+e = badr(format, &a, k);
 f = just(format, &a, k);
 g = jul(format, &a);
 a++;
@@ -45,7 +45,7 @@ return (c);
 }
 
 /**
-*mucy - a function
+*mucy - function.
 *@buffer: an array
 *@buff_ind: a pointer
 */
