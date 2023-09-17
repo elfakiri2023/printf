@@ -13,3 +13,4 @@ void buffer_print(char buffer[], int *buff_ind)
 
 	*buff_ind = 0;
 }
+

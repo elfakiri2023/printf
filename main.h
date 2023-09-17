@@ -1,7 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdarg.h>
+
 #include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 #define UNUSED(x) (void)(x)
@@ -33,9 +35,9 @@ struct fmt
  * @fmt: format
  * @fm_t: associated function.
  */
+
 typedef struct fmt fmt_t;
 
-int _putchar(char c);
 int _printf(const char *format, ...);
 void buffer_print(char buffer[], int *buff_ind);
 int print_handler(const char *fmt, int *i,
@@ -88,6 +90,5 @@ long int convert_unsgnd_size(unsigned long int num, int size);
 int check_if_printable(char);
 int append_the_hexa_code(char, char[], int);
 int check_if_digit(char);
+
 #endif
-
-
