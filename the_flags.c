@@ -6,7 +6,7 @@
  * @i: int
  * Return: the flags
  */
- 
+
 int the_flags(const char *format, int *i)
 {
 	int j, i2;
