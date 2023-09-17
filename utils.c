@@ -1,84 +1,11 @@
 #include "main.h"
 
-
 /**
- * print_a_string - prints a string
- * @types: va_list
- * @buffer: char
- * @flags: int
- * @width: int
- * @precision: int
- * @size: int
- * Return: number of chars
+ * check_if_printable - Evaluates if a char is printable
+ * @c: Char to be evaluated.
+ *
+ * Return: 1 if c is printable, 0 otherwise
  */
-
-int print_a_string(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
-{
-	char *str = va_arg(types, char *);
-	int length = 0, i;
-
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
-	if (str == NULL)
-	{
-		str = "(null)";
-		if (precision >= 6)
-			str = "      ";
-	}
-
-	while (str[length] != '\0')
-		length++;
-
-	if (precision >= 0 && precision < length)
-		length = precision;
-
-	if (width > length)
-	{
-		if (flags & F_MINUS)
-		{
-			write(1, &str[0], length);
-			for (i = width - length; i > 0; i--)
-				write(1, " ", 1);
-			return (width);
-		}
-		else
-		{
-			for (i = width - length; i > 0; i--)
-				write(1, " ", 1);
-			write(1, &str[0], length);
-			return (width);
-		}
-	}
-
-	return (write(1, str, length));
-}
-
-/**
- * convert_number_size - casts a number to the specified size
- * @num:int
- * @size: int
- * Return: casted value
- */
-long int convert_number_size(long int num, int size)
-{
-	if (size == S_LONG)
-		return (num);
-	else if (size == S_SHORT)
-		return ((short)num);
-
-	return ((int)num);
-}
-
-/**
- * check_if_printable - check if a char is printable.
- * @c: char
- * Return: 1 if c is printable and 0 otherwise
- */
-
 int check_if_printable(char c)
 {
 	if (c >= 32 && c < 127)
@@ -88,16 +15,17 @@ int check_if_printable(char c)
 }
 
 /**
- * append_the_hexa_code - function to append ascci
- * @buffer: array
- * @i: index
- * @ascii_code: ascii code
- * Return: 3
+ * append_a_hexa_code - Append ascci in hexadecimal code to buffer
+ * @buffer: Array of chars.
+ * @i: Index at which to start appending.
+ * @ascii_code: ASSCI CODE.
+ *
+ * Return: Always 3
  */
-
-int append_the_hexa_code(char ascii_code, char buffer[], int i)
+int append_a_hexa_code(char ascii_code, char buffer[], int i)
 {
 	char map_to[] = "0123456789ABCDEF";
+	/* cc */
 	if (ascii_code < 0)
 		ascii_code *= -1;
 
@@ -111,9 +39,10 @@ int append_the_hexa_code(char ascii_code, char buffer[], int i)
 }
 
 /**
- * check_if_digit - check if a char is a digit.
- * @c: char
- * Return: 1 if digit and 0 otherwise
+ * check_if_digit - Verifies if a char is a digit
+ * @c: Char to be evaluated
+ *
+ * Return: 1 if c is a digit, 0 otherwise
  */
 int check_if_digit(char c)
 {
@@ -123,3 +52,36 @@ int check_if_digit(char c)
 	return (0);
 }
 
+/**
+ * convert_the_size_number - Casts a number to the specified size
+ * @num: Number to be casted.
+ * @size: Number indicating the type to be casted.
+ *
+ * Return: Casted value of num
+ */
+long int convert_the_size_number(long int num, int size)
+{
+	if (size == S_LONG)
+		return (num);
+	else if (size == S_SHORT)
+		return ((short)num);
+
+	return ((int)num);
+}
+
+/**
+ * convert_the_size_unsgnd - Casts a number to the specified size
+ * @num: Number to be casted
+ * @size: Number indicating the type to be casted
+ *
+ * Return: Casted value of num
+ */
+long int convert_the_size_unsgnd(unsigned long int num, int size)
+{
+	if (size == S_LONG)
+		return (num);
+	else if (size == S_SHORT)
+		return ((unsigned short)num);
+
+	return ((unsigned int)num);
+}
