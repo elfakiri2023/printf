@@ -5,7 +5,7 @@
  * @buffer: array
  * @buff_ind: the length
  */
- 
+
 void buffer_print(char buffer[], int *buff_ind)
 {
 	if (*buff_ind > 0)
