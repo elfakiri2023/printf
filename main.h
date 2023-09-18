@@ -70,35 +70,35 @@ int print_non_printable(va_list types, char buffer[],
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-int get_flags(const char *format, int *i);
-int get_width(const char *format, int *i, va_list list);
-int get_precision(const char *format, int *i, va_list list);
-int get_size(const char *format, int *i);
+int get_the_flags(const char *format, int *i);
+int get_the_width(const char *format, int *i, va_list list);
+int get_the_precision(const char *format, int *i, va_list list);
+int get_the_size(const char *format, int *i);
 
-int print_a_reverse(va_list types, char buffer[],
+int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-int print_a_rot13string(va_list types, char buffer[],
+int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size);
-int write_a_number(int is_positive, int ind, char buffer[],
+int write_number(int is_positive, int ind, char buffer[],
 	int flags, int width, int precision, int size);
-int write_a_num(int ind, char bff[], int flags, int width, int precision,
+int write_num(int ind, char bff[], int flags, int width, int precision,
 	int length, char padd, char extra_c);
-int write_a_pointer(char buffer[], int ind, int length,
+int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start);
 
 int write_a_unsgnd(int is_negative, int ind,
 char buffer[],
 	int flags, int width, int precision, int size);
 
-int is_printable(char);
-int append_hexa_code(char, char[], int);
-int is_digit(char);
+int check_is_printable(char);
+int append_a_hexa_code(char, char[], int);
+int check_is_digit(char);
 
-long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int num, int size);
+long int convert_the_size_number(long int num, int size);
+long int convert_the_size_unsgnd(unsigned long int num, int size);
 
 #endif

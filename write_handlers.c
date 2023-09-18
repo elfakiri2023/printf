@@ -44,7 +44,7 @@ int handle_write_char(char c, char buffer[],
 }
 
 /**
- * write_a_number - Prints a string
+ * write_number - Prints a string
  * @is_negative: Lista of arguments
  * @ind: char types.
  * @buffer: Buffer array to handle print
@@ -55,7 +55,7 @@ int handle_write_char(char c, char buffer[],
  *
  * Return: Number of chars printed.
  */
-int write_a_number(int is_negative, int ind, char buffer[],
+int write_number(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int length = BUFF_SIZE - ind - 1;
@@ -72,12 +72,12 @@ int write_a_number(int is_negative, int ind, char buffer[],
 	else if (flags & F_SPACE)
 		extra_ch = ' ';
 
-	return (write_a_num(ind, buffer, flags, width, precision,
+	return (write_num(ind, buffer, flags, width, precision,
 		length, padd, extra_ch));
 }
 
 /**
- * write_a_num - Write a number using a bufffer
+ * write_num - Write a number using a bufffer
  * @ind: Index at which the number starts on the buffer
  * @buffer: Buffer
  * @flags: Flags
@@ -89,7 +89,7 @@ int write_a_number(int is_negative, int ind, char buffer[],
  *
  * Return: Number of printed chars.
  */
-int write_a_num(int ind, char buffer[],
+int write_num(int ind, char buffer[],
 	int flags, int width, int prec,
 	int length, char padd, char extra_c)
 {
@@ -193,7 +193,7 @@ int write_a_unsgnd(int is_negative, int ind,
 }
 
 /**
- * write_a_pointer - Write a memory address
+ * write_pointer - Write a memory address
  * @buffer: Arrays of chars
  * @ind: Index at which the number starts in the buffer
  * @length: Length of number
@@ -205,7 +205,7 @@ int write_a_unsgnd(int is_negative, int ind,
  *
  * Return: Number of written chars.
  */
-int write_a_pointer(char buffer[], int ind, int length,
+int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start)
 {
 	int i;
