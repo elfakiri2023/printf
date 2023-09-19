@@ -41,8 +41,6 @@ int _printf(const char *format, ...);
 int handle_a_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
-void print_buffer(char buffer[], int *buff_ind);
-
 int print_a_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_a_string(va_list types, char buffer[],
